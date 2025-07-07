@@ -22,8 +22,14 @@ void loop()
     if(uid != "")
     {
         neopixel_white(); // Neopixel auf weiß setzen (Karte gelesen)
-        //if(http_check_id(uid)) // UID mit HTTP-Anfrage überprüfen
-        if(uid == "73AB8AF5")
+        Serial.println("OPENING DOOR!"); // Nachricht auf der seriellen Konsole ausgeben
+        digitalWrite(GPIO_DOOR_CONTROL, LOW); // Tür öffnen
+        neopixel_green(); // Neopixel auf grün setzen (Zugang gewährt)
+        delay(5000); // 5 Sekunden warten, Tür bleibt offen
+        digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
+        neopixel_off(); // Neopixel ausschalten
+        /*if(http_check_id(uid)) // UID mit HTTP-Anfrage überprüfen
+        //if(uid == "73AB8AF5")
         {
             Serial.println("OPENING DOOR!"); // Nachricht auf der seriellen Konsole ausgeben
             digitalWrite(GPIO_DOOR_CONTROL, LOW); // Tür öffnen
@@ -37,6 +43,6 @@ void loop()
             neopixel_red(); // Neopixel auf rot setzen (Zugang verweigert)
             delay(3000); // 3 Sekunden warten
             neopixel_off(); // Neopixel ausschalten
-        }
+        }*/
     }
 }

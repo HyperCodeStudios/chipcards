@@ -5,15 +5,16 @@
 #include <HTTPClient.h> // Einbindung der HTTP-Client-Bibliothek
 
 // WiFi-Zugangsdaten
-const char WIFI_SSID[] = "qbin's Pixel";
-const char WIFI_PASSWORD[] = "openPixel!";
+const char WIFI_SSID[] = "SLG-Medien";
+const char WIFI_PASSWORD[] = "SommerSonneWetter23!";
 
 // Zugangsdaten für die Website
 const char WEBSITE_USER[] = "leoapp";
 const char WEBSITE_PASSWORD[] = "leoapp";
 
 // URL der Website zur UID-Überprüfung
-String HOST_NAME = "https://secureaccess.it4schools.de/slgweb/chipcards/check.php?id=";
+//String HOST_NAME = "https://secureaccess.it4schools.de/slgweb/chipcards/check.php?id=";
+String HOST_NAME = "http://10.147.48.104/chipcards/check.php?id=";
 
 HTTPClient client; // HTTP-Client-Objekt
 
