@@ -16,10 +16,7 @@
                 "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/MFRC522/src",
                 "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/NeoPixelBus/src",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src",
-                "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/Adafruit PN532",
-                "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/Adafruit BusIO",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
-                "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
@@ -243,6 +240,7 @@
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
                 "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
+                "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                 ""
             ],
             "browse": {
@@ -256,10 +254,7 @@
                     "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/MFRC522/src",
                     "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/NeoPixelBus/src",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/I2S/src",
-                    "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/Adafruit PN532",
-                    "u:/Documents/GitHub/chipcards/.pio/libdeps/wemos_d1_mini32/Adafruit BusIO",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/SPI/src",
-                    "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/newlib/platform_include",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/esp_additions/freertos",
@@ -483,6 +478,7 @@
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/Update/src",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/WebServer/src",
                     "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/WiFiProv/src",
+                    "C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src",
                     ""
                 ]
             },
