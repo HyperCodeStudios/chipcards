@@ -33,7 +33,7 @@ void http_setup()
 
 bool http_check_id(String uid)
 {
-  /*String url = HOST_NAME + uid; // Vollständige URL erstellen
+  String url = HOST_NAME + uid; // Vollständige URL erstellen
   client.begin(url); // HTTP-Verbindung starten
   client.setAuthorization(WEBSITE_USER, WEBSITE_PASSWORD); // Authentifizierung setzen
   int httpCode = client.GET(); // HTTP GET-Anfrage senden
@@ -66,6 +66,4 @@ bool http_check_id(String uid)
 
   client.end(); // Verbindung beenden
   return false; // Fehlgeschlagene Überprüfung
-  */
-  return true;
 }

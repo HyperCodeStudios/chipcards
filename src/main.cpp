@@ -33,24 +33,31 @@ void loop()
     {
         message += uart.read();
     }
+    
     switch(state)
     {
     case STATE_IDLE:
         if(message == "") break;
-        if(!message.startsWith("DATA: ")) break;
+        String uid = message.substring(0, message.length() - 1);
         if(http_check_id(uid)) // UID mit HTTP-Anfrage überprüfen
         //if(uid == "73AB8AF5")
         {
             Serial.println("OPENING DOOR!"); // Nachricht auf der seriellen Konsole ausgeben
             state = STATE_ACCEPT;
             digitalWrite(GPIO_DOOR_CONTROL, LOW); // Tür öffnen
-            uart.println("ACCEPT")
+            uart.print("i");
+            uart.write((uint8_t) 1);
+            uart.write((uint8_t) 0);
+            uart.write((uint8_t) 255);
+            uart.write((uint8_t) 0);
+            uart.write((uint32_t) 5000);
+            uart.println();
             delay(5000); // 5 Sekunden warten, Tür bleibt offen
             digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
         }
         else // UID ist nicht berechtigt
         {
-            uart.println("DECLINE")
+            uart.println("DECLINE");
             delay(3000); // 3 Sekunden warten
         }
         break;
