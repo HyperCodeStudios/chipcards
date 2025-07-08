@@ -4,5 +4,4 @@
 # Ignore PlatformIO build folder
 .pio/
 
-# Ignore specific workspace file
 chipcards.code-workspace
