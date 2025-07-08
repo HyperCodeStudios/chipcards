@@ -5,7 +5,7 @@
 #include <HTTPClient.h> // Einbindung der HTTP-Client-Bibliothek
 
 // WiFi-Zugangsdaten
-const char WIFI_SSID[] = "Justus";
+const char WIFI_SSID[] = "justus";
 const char WIFI_PASSWORD[] = "12345678";
 
 // Zugangsdaten für die Website
