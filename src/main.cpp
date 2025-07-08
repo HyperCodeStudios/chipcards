@@ -19,7 +19,7 @@ int state = STATE_IDLE;
 
 void setup()
 {
-    Serial.begin(9600); // Serielle Kommunikation starten
+    Serial.begin(115200); // Serielle Kommunikation starten
     pinMode(GPIO_DOOR_CONTROL, OUTPUT); // Türsteuerung als Ausgang konfigurieren
     digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
     http_setup(); // HTTP initialisieren
