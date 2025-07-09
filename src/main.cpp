@@ -7,14 +7,8 @@
 // #define GPIO_RX GPIO_NUM_16
 // #define GPIO_TX GPIO_NUM_17
 
-#define STATE_IDLE 0
-#define STATE_AWAIT 1
-#define STATE_ACCEPT 2
-#define STATE_DECLINE 3
-
 // HardwareSerial Serial1(1);
 // HardwareSerial uart(2);
-int state = STATE_IDLE;
 
 
 void setup()
@@ -35,36 +29,44 @@ void loop()
     {
         char data = Serial1.read();
         message += data;
-        Serial.println("DATA: " + data);
+        Serial.print("DATA: ");
+        Serial.println(data);
         Serial.println("MESSAGE: " + message);
     }
-    
-    switch(state)
+    if(message == "") return;
+    String uid = message.substring(0, message.length() - 1);
+    if(http_check_id(uid)) // UID mit HTTP-Anfrage überprüfen
+    //if(uid == "73AB8AF5")
     {
-    case STATE_IDLE:
-        if(message == "") break;
-        String uid = message.substring(0, message.length() - 1);
-        if(http_check_id(uid)) // UID mit HTTP-Anfrage überprüfen
-        //if(uid == "73AB8AF5")
-        {
-            Serial.println("OPENING DOOR!"); // Nachricht auf der seriellen Konsole ausgeben
-            state = STATE_ACCEPT;
-            digitalWrite(GPIO_DOOR_CONTROL, LOW); // Tür öffnen
-            Serial1.print('i');
-            Serial1.write((uint8_t) 1);
-            Serial1.write((uint8_t) 0);
-            Serial1.write((uint8_t) 255);
-            Serial1.write((uint8_t) 0);
-            Serial1.write((uint32_t) 5000);
-            Serial1.println();
-            delay(5000); // 5 Sekunden warten, Tür bleibt offen
-            digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
-        }
-        else // UID ist nicht berechtigt
-        {
-            Serial1.println("DECLINE");
-            delay(3000); // 3 Sekunden warten
-        }
-        break;
+        Serial.println("OPENING DOOR!"); // Nachricht auf der seriellen Konsole ausgeben
+        digitalWrite(GPIO_DOOR_CONTROL, LOW); // Tür öffnen
+        Serial1.print('i');
+        Serial1.write((uint8_t) 1);
+        Serial1.write((uint8_t) 0);
+        Serial1.write((uint8_t) 255);
+        Serial1.write((uint8_t) 0);
+        Serial1.write((uint8_t) 0x00);
+        Serial1.write((uint8_t) 0x00);
+        Serial1.write((uint8_t) 0x10);
+        Serial1.write((uint8_t) 0x00);
+        Serial1.println();
+        
+        Serial.print('i');
+        Serial.write((uint8_t) 1);
+        Serial.write((uint8_t) 0);
+        Serial.write((uint8_t) 255);
+        Serial.write((uint8_t) 0);
+        Serial.write((uint8_t) 0x00);
+        Serial.write((uint8_t) 0x00);
+        Serial.write((uint8_t) 0x01);
+        Serial.write((uint8_t) 0x00);
+        Serial.println();
+        delay(5000); // 5 Sekunden warten, Tür bleibt offen
+        digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
+    }
+    else // UID ist nicht berechtigt
+    {
+        Serial.println("DECLINE");
+        delay(3000); // 3 Sekunden warten
     }
 }
