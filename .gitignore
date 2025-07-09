@@ -1,0 +1,7 @@
+# Ignore VS Code settings folder
+.vscode/
+
+# Ignore PlatformIO build folder
+.pio/
+
+chipcards.code-workspace
