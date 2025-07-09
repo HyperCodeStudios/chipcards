@@ -5,8 +5,8 @@
 #include <HTTPClient.h> // Einbindung der HTTP-Client-Bibliothek
 
 // WiFi-Zugangsdaten
-const char WIFI_SSID[] = "SLG-Medien";
-const char WIFI_PASSWORD[] = "SommerSonneWetter23!";
+const char WIFI_SSID[] = "justus";
+const char WIFI_PASSWORD[] = "12345678";
 
 // Zugangsdaten für die Website
 const char WEBSITE_USER[] = "leoapp";
@@ -33,7 +33,7 @@ void http_setup()
 
 bool http_check_id(String uid)
 {
-  String url = HOST_NAME + uid; // Vollständige URL erstellen
+  /*String url = HOST_NAME + uid; // Vollständige URL erstellen
   client.begin(url); // HTTP-Verbindung starten
   client.setAuthorization(WEBSITE_USER, WEBSITE_PASSWORD); // Authentifizierung setzen
   int httpCode = client.GET(); // HTTP GET-Anfrage senden
@@ -65,5 +65,6 @@ bool http_check_id(String uid)
   }
 
   client.end(); // Verbindung beenden
-  return false; // Fehlgeschlagene Überprüfung
+  return false; // Fehlgeschlagene Überprüfung*/
+  return true;
 }

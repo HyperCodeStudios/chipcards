@@ -5,33 +5,39 @@
 
 #define GPIO_DOOR_CONTROL GPIO_NUM_25 // Türsteuerung GPIO-Pin
 
-#define UART_BAUD_RATE 9600
-#define GPIO_RX GPIO_NUM_16
-#define GPIO_TX GPIO_NUM_17
+#define UART_BAUD_RATE 115200
 
 #define STATE_IDLE 0
 #define STATE_AWAIT 1
 #define STATE_ACCEPT 2
 #define STATE_DECLINE 3
 
-HardwareSerial uart(2);
+// HardwareSerial Serial1(1);
 int state = STATE_IDLE;
 
 void setup()
 {
-    Serial.begin(9600); // Serielle Kommunikation starten
+    Serial.begin(115200); // Serielle Kommunikation starten
+    Serial.println("helalo world");
     pinMode(GPIO_DOOR_CONTROL, OUTPUT); // Türsteuerung als Ausgang konfigurieren
+    Serial.println("helblo world");
     digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
+    Serial.println("helclo world");
     http_setup(); // HTTP initialisieren
-    uart.begin(UART_BAUD_RATE, SERIAL_8N1, GPIO_RX, GPIO_TX);
+    Serial.println("heldlo world");
+    Serial1.begin(UART_BAUD_RATE, SERIAL_8N1, 10, 9); // RX: GPIO10, TX: GPIO09
+    Serial.println("helelo world");
 }
 
 void loop()
 {
+    Serial1.println("p");
+    delay(1000);
     String message = "";
-    while(uart.available() > 0)
+    while(Serial1.available() > 0)
     {
-        message += uart.read();
+        message += Serial1.read();
+        Serial.println("MESSAGE RECEIVED: " + message); // Nachricht auf der seriellen Konsole ausgeben
     }
     
     switch(state)
@@ -45,19 +51,19 @@ void loop()
             Serial.println("OPENING DOOR!"); // Nachricht auf der seriellen Konsole ausgeben
             state = STATE_ACCEPT;
             digitalWrite(GPIO_DOOR_CONTROL, LOW); // Tür öffnen
-            uart.print("i");
-            uart.write((uint8_t) 1);
-            uart.write((uint8_t) 0);
-            uart.write((uint8_t) 255);
-            uart.write((uint8_t) 0);
-            uart.write((uint32_t) 5000);
-            uart.println();
+            Serial1.print('i');
+            Serial1.write((uint8_t) 1);
+            Serial1.write((uint8_t) 0);
+            Serial1.write((uint8_t) 255);
+            Serial1.write((uint8_t) 0);
+            Serial1.write((uint32_t) 5000);
+            Serial1.println();
             delay(5000); // 5 Sekunden warten, Tür bleibt offen
             digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
         }
         else // UID ist nicht berechtigt
         {
-            uart.println("DECLINE");
+            Serial1.println("DECLINE");
             delay(3000); // 3 Sekunden warten
         }
         break;

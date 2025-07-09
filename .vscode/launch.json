@@ -12,9 +12,9 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug",
-            "executable": "u:/Documents/GitHub/chipcards/.pio/build/wemos_d1_mini32/firmware.elf",
+            "executable": "E:/chipcards/.pio/build/wemos_d1_mini32/firmware.elf",
             "projectEnvName": "wemos_d1_mini32",
-            "toolchainBinDir": "C:/Users/flo1506gra.slg/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "C:/Users/User/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "preLaunchTask": {
                 "type": "PlatformIO",
@@ -25,18 +25,18 @@
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (skip Pre-Debug)",
-            "executable": "u:/Documents/GitHub/chipcards/.pio/build/wemos_d1_mini32/firmware.elf",
+            "executable": "E:/chipcards/.pio/build/wemos_d1_mini32/firmware.elf",
             "projectEnvName": "wemos_d1_mini32",
-            "toolchainBinDir": "C:/Users/flo1506gra.slg/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "C:/Users/User/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart"
         },
         {
             "type": "platformio-debug",
             "request": "launch",
             "name": "PIO Debug (without uploading)",
-            "executable": "u:/Documents/GitHub/chipcards/.pio/build/wemos_d1_mini32/firmware.elf",
+            "executable": "E:/chipcards/.pio/build/wemos_d1_mini32/firmware.elf",
             "projectEnvName": "wemos_d1_mini32",
-            "toolchainBinDir": "C:/Users/flo1506gra.slg/.platformio/packages/toolchain-xtensa-esp32/bin",
+            "toolchainBinDir": "C:/Users/User/.platformio/packages/toolchain-xtensa-esp32/bin",
             "internalConsoleOptions": "openOnSessionStart",
             "loadMode": "manual"
         }

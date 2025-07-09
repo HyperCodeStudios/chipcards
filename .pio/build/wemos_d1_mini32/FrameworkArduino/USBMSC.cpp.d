@@ -1,4 +1,4 @@
 .pio/build/wemos_d1_mini32/FrameworkArduino/USBMSC.cpp.o: \
- C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/cores/esp32/USBMSC.cpp \
- C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/cores/esp32/USBMSC.h \
- C:/Users/flo1506gra.slg/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/dio_qspi/include/sdkconfig.h
+ C:/Users/User/.platformio/packages/framework-arduinoespressif32/cores/esp32/USBMSC.cpp \
+ C:/Users/User/.platformio/packages/framework-arduinoespressif32/cores/esp32/USBMSC.h \
+ C:/Users/User/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/dio_qspi/include/sdkconfig.h

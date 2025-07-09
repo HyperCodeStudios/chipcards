@@ -1,12 +1,23 @@
 {
 	"folders": [
 		{
-			"path": "../../../GitHub/chipcards"
-		},
-		{
 			"name": "Chipcards",
 			"path": "."
+		},
+		{
+			"path": "D:/Downloads/Slg-ChipCards-Terminal-main/Slg-ChipCards-Terminal-main/terminal"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"*.embeddedhtml": "html",
+			"array": "cpp",
+			"deque": "cpp",
+			"string": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"string_view": "cpp",
+			"initializer_list": "cpp"
+		}
+	}
 }
