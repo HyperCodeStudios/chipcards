@@ -1,11 +1,11 @@
 #include <Arduino.h>
-#include "rfid.hpp" // RFID-Funktionalität
 #include "http.hpp" // HTTP-Funktionalität
-#include "neopixel.hpp" // Neopixel-Funktionalität
 
-#define GPIO_DOOR_CONTROL GPIO_NUM_25 // Türsteuerung GPIO-Pin
+#define GPIO_DOOR_CONTROL GPIO_NUM_27 // Türsteuerung GPIO-Pin
 
 #define UART_BAUD_RATE 115200
+// #define GPIO_RX GPIO_NUM_16
+// #define GPIO_TX GPIO_NUM_17
 
 #define STATE_IDLE 0
 #define STATE_AWAIT 1
@@ -13,20 +13,17 @@
 #define STATE_DECLINE 3
 
 // HardwareSerial Serial1(1);
+// HardwareSerial uart(2);
 int state = STATE_IDLE;
+
 
 void setup()
 {
     Serial.begin(115200); // Serielle Kommunikation starten
-    Serial.println("helalo world");
     pinMode(GPIO_DOOR_CONTROL, OUTPUT); // Türsteuerung als Ausgang konfigurieren
-    Serial.println("helblo world");
     digitalWrite(GPIO_DOOR_CONTROL, HIGH); // Tür schließen
-    Serial.println("helclo world");
     http_setup(); // HTTP initialisieren
-    Serial.println("heldlo world");
-    Serial1.begin(UART_BAUD_RATE, SERIAL_8N1, 10, 9); // RX: GPIO10, TX: GPIO09
-    Serial.println("helelo world");
+    Serial1.begin(UART_BAUD_RATE, SERIAL_8N1, 16, 17); // RX: 10, TX: 9
 }
 
 void loop()
@@ -36,8 +33,10 @@ void loop()
     String message = "";
     while(Serial1.available() > 0)
     {
-        message += Serial1.read();
-        Serial.println("MESSAGE RECEIVED: " + message); // Nachricht auf der seriellen Konsole ausgeben
+        char data = Serial1.read();
+        message += data;
+        Serial.println("DATA: " + data);
+        Serial.println("MESSAGE: " + message);
     }
     
     switch(state)
